@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>
+        Bài tập 1
+    </title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="baitap1.css">
+    <script type="text/javascript" src="jquery.min.js"></script>
+     <script type="text/javascript" language="javascript">
+         $(document).ready(function() {
+            var x = 1;
+            var y = 0;
+            var z = 0;
+            $("#push").click(function () {
+               var nd = $(".text").val() ;
+               $(".here").before('<div class="iterm"><input style="margin: 30px" type="checkbox" name="c" class="complete" >'+ nd +'</div>' );
+               z++;
+
+               console.log(z)
+               console.log(nd);
+               x++ ;
+               $("#head").text(x);
+            });
+            $(document).on('click','.complete',function(){
+              if ($(this).prop("checked")){
+                  y++;
+              }
+              else {
+                   y-- ;
+                }
+              $("#foot").text(y);
+            });
+         });
+      </script>
+
+</head>
+<body>
+    <div class="head">Những việc cần làm <span id="head" ></span> </div>
+    <div class="iterm"> <input style="margin: 30px" type="checkbox" name="c" class="complete">have a lots girlfriends</div>
+    <div class="iterm d-flex justify-content-center here"><input style="width: 700px" type="text" class="text" c><button class="bg-danger text-white pl-5 pr-5" id="push">ok</button></div>
+    <div class="head">Những việc đã hoàn thành <span id="foot" ></span> </div>
+</body>
+</html>

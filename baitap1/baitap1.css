@@ -1,0 +1,18 @@
+.head {
+    height: 140px;
+    color:  #ff8080;
+    font-size: 30px;
+    background:#00FFFF;
+    text-align: center;
+    line-height: 140px;
+    border-bottom: 2px solid #ff1a1a ;
+}
+.iterm {
+    height: 120px;
+    color:  #ffb3b3;
+    font-size: 24px;
+    background: #00ffbf;
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid #ff1a1a ;
+}
