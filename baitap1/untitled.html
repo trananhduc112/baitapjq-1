@@ -1,30 +1,30 @@
-<html>
-   <head>
-      <title>The jQuery Example</title>
-      <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>jQuery.makeArray demo</title>
+  <style>
+  div {
+    color: red;
+  }
+  </style>
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
 
-      <script type="text/javascript" language="javascript">
-         $(document).ready(function() {
-            $("div").click(function () {
-               $(this).clone().insertAfter(this);
-            });
-         });
-      </script>
+<div>First</div>
+<div>Second</div>
+<div>Third</div>
+<div>Fourth</div>
 
-      <style>
-         .div{ margin:10px;padding:12px; border:2px solid #666; width:60px;}
-      </style>
+<script>
+// Returns a NodeList
+var elems = document.getElementsByTagName( "div" );
+// Convert the NodeList to an Array
+var arr = jQuery.makeArray( elems );
+// Use an Array method on list of dom elements
+arr.reverse();
+$( document ).appendTo( arr );
+</script>
 
-   </head>
-
-   <body>
-
-      <p>Click on any square below to see the result:</p>
-
-      <div class="div" style="background-color:blue;"></div>
-      <div class="div" style="background-color:green;"></div>
-      <div class="div" style="background-color:red;"></div>
-
-   </body>
-
+</body>
 </html>

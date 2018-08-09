@@ -25,7 +25,7 @@
               if(e.keyCode == 13){
                  var nd = $(".text").val() ;
                  var d = new Date();
-                var n = d.getTime();
+                 var n = d.getTime();
                  $(".here").after('<div class="iterm " id="box_' + n + '"><input type="checkbox" name="c" class="complete " >'+ nd +'</div>' );
                  $(".text").val("");
                  x++ ;
@@ -36,7 +36,7 @@
               var myid = $(this).attr("id");
               var c = $('#' + myid).children('input[type=checkbox]:checked').val();
               console.log(myid);
-              console.log(c);
+              console.log($(this).children())
               if(c == undefined){
                 $('#'+myid+'').children('input[type=checkbox]').attr("checked",true);
                 $('#'+myid+'').css('text-decoration','line-through');
@@ -58,8 +58,6 @@
       <p class="pt-2">Những việc cần làm <span id="head" ></span></p>
       <input style="width: 700px" type="text" class="text" placeholder="Thêm việc cần làm"><button class="bg-danger text-white pl-5 pr-5 text" id="push">ok</button>
     </div>
-   <!--  <div class="iterm" for="abc"> <input style="margin: 30px" type="checkbox" name="c" class="complete">have a lots girlfriends</div> -->
-    <!-- <div class="iterm d-flex justify-content-center here"><input style="width: 700px" type="text" class="text" placeholder="Thêm việc cần làm"><button class="bg-danger text-white pl-5 pr-5" id="push">ok</button></div> -->
     <div class="head">Những việc đã hoàn thành <span id="foot" ></span> </div>
 </body>
 </html>

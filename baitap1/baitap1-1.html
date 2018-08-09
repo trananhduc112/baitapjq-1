@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>
+        Bài tập 1
+    </title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="baitap1.css">
+    <script type="text/javascript" src="jquery.min.js"></script>
+     <script type="text/javascript" language="javascript">
+        $(document).ready(function() {
+         var x = JSON.parse(localStorage.getItem('arr'));
+            console.log(x);
+            if (x===null){
+              arr = [];
+            }
+            else{
+              arr = x;
+            }
+          for( var i=0 ;i<arr.length;i++){
+            $('.here').after('<div class="iterm">'+ arr[i] +'<div>')
+          }
+         $("#push").click(function(){
+            var nd = $(".text").val();
+            $(".text").val("");
+            var x = JSON.parse(localStorage.getItem('arr'));
+            console.log(x);
+            if (x===null){
+              arr = [];
+            }
+            else{
+              arr = x;
+            }
+            arr.push(nd);
+            localStorage.setItem('arr',  JSON.stringify(arr));
+            $('.iterm').remove();
+            for( var i=0 ;i<arr.length;i++){
+              $('.here').after('<div class="iterm"><button type="checkbox" class="complete"></button>'+ arr[i] +'<div>')
+            }
+          });
+         // $(document).on('click','.iterm',function(){
+         //    var myid = $(this).attr("id");
+         //    var c = $('#' + myid).children('input[type=checkbox]:checked').val();
+         //    console.log(myid);
+         //    console.log($(this).children())
+         //    if(c == undefined){
+         //      $('#'+myid+'').children('input[type=checkbox]').attr("checked",true);
+         //      $('#'+myid+'').css('text-decoration','line-through');
+         //      y++;
+         //    }
+         //    else{
+         //      $('#'+myid+'').children('input[type=checkbox]').attr("checked",false);
+         //      $('#'+myid+'').css('text-decoration','none');
+         //      y--;
+         //    }
+         //    $("#foot").text(y);
+         //  });
+        });
+      </script>
+
+</head>
+<body>
+    <div class="head here">
+      <p class="pt-2">Những việc cần làm <span id="head" ></span></p>
+      <input style="width: 700px" type="text" class="text" placeholder="Thêm việc cần làm"><button class="bg-danger text-white pl-5 pr-5 text" id="push">ok</button>
+    </div>
+    <div class="head">Những việc đã hoàn thành <span id="foot" ></span> </div>
+</body>
+</html>
