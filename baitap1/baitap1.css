@@ -1,24 +1,33 @@
 .head {
-    color:  #ff8080;
+    color: white;
     font-size: 26px;
-    background:#00FFFF;
+    background:#000080;
     text-align: center;
     padding: 20px ;
-    border-bottom: 2px solid #ff1a1a ;
+    border-bottom: 1px solid white ;
 }
 .iterm {
     padding: 20px ;
-    color:  #ffb3b3;
+    color:  white;
     font-size: 18px;
-    background: #00ffbf;
+    background: #000080;
     display: flex;
     align-items: center;
-    border-bottom: 2px solid #ff1a1a ;
+    border-bottom: 1px solid white ;
+    width: 95%;
+    float: left;
 }
 .text{
-    color: #ffb3b3 ;
+    color: black ;
     font-size: 18px ;
 }
 .complete{
     margin-right: 20px;
+}
+.del{
+    width: 68px;
+    height:68px;
+    background: #000080;
+    color: white;
+    font-size: 26px;
 }

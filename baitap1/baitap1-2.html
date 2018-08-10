@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>
+        Bài tập 1
+    </title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="baitap1.css">
+    <script type="text/javascript" src="jquery.min.js"></script>
+     <script type="text/javascript" language="javascript">
+        $(document).ready(function() {
+            var x = localStorage.getItem('x') ;
+            $("#listing_items").html(localStorage.getItem('listing'));
+            $("#head").html(x);
+            var text_value = $(".text");
+            var listing_items = $("#listing_items");
+            $('#push').click(function(event){
+                x++;
+                $("#head").html(x);
+                localStorage.setItem('x',x);
+                event.preventDefault();
+                var item = text_value.val();
+                if(item){
+                    listing_items.prepend('<div class="box"><li class="iterm"><input type="checkbox" name="c" class="complete">'+item+'</li><button class=del>x</button></div>');
+                    $(".text").val("");
+                    console.log(listing_items.html());
+                    localStorage.setItem('listing', listing_items.html());
+                }
+            });
+            $(document).on('click','.iterm',function(){
+                var c = $(this).children('input[type=checkbox]').attr('checked');
+                if(c == undefined){
+                    $(this).children('input[type=checkbox]').attr("checked",true);
+                    $(this).css('text-decoration','line-through');
+                    }
+                else{
+                    $(this).children('input[type=checkbox]').attr("checked",false);
+                    $(this).css('text-decoration','none');
+                }
+                localStorage.setItem('listing', listing_items.html());
+            });
+            $(document).on('click','.del',function(){
+                x--;
+                localStorage.setItem('x',x);
+                $("#head").html(x);
+                $(this).parent().html("");
+                localStorage.setItem('listing', listing_items.html());
+            });
+        });
+      </script>
+
+</head>
+<body>
+    <div class="head here">
+      <p class="pt-2">Những việc cần làm <span id="head" ></span></p>
+      <input style="width: 700px" type="text" class="text " placeholder="Thêm việc cần làm"><button class="bg-dark border-0 text-white pl-5 pr-5 pt-1 pb-1 text" id="push">ok</button>
+    </div>
+    <div id="listing_items">
+
+    </div>
+    <div class="head">Những việc đã hoàn thành <span id="foot" ></span> </div>
+</body>
+</html>
